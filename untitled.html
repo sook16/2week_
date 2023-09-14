@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>누르지마시오</title>
+</head>
+<body>
+    <button id="redButton">빨간 버튼</button>
+    <p id="displayText">클릭 횟수: 0</p>
+
+    <script>
+        // 빨간 버튼 클릭 횟수를 저장할 변수
+        let clickCount = 0;
+
+        // 빨간 버튼 요소를 가져오기
+        const redButton = document.getElementById("redButton");
+
+        // 텍스트를 표시할 요소 가져오기
+        const displayText = document.getElementById("displayText");
+
+        // 빨간 버튼 클릭 이벤트 핸들러 함수
+        redButton.addEventListener("click", function() {
+            // 클릭 횟수 증가
+            clickCount++;
+
+            // 텍스트 업데이트
+            displayText.textContent = `클릭 횟수: ${clickCount}`;
+
+            // 클릭 횟수가 3번이 되면 에러 창 표시
+            if (clickCount === 3) {
+                try {
+                    // 에러 발생 (이 부분에서 예외를 발생시킵니다.)
+                    nonexistentFunction();
+                } catch (error) {
+                    // 에러 메시지 표시
+                    alert("분명 누르지 말라고 했는데!: " + error.message);
+                    
+                    // 지정된 이미지로 이동
+                    window.location.href = "이미지의_경로_또는_URL";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
